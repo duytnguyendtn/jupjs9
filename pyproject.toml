@@ -11,7 +11,8 @@ license = "MIT"
 
 dependencies = [
     "jinja2",
-    "jupyter_server"
+    "jupyter_server",
+    "jupyter-server-proxy"
 ]
 dynamic = ["version"]
 
@@ -21,8 +22,9 @@ Source = "https://github.com/zoghbi-a/jupjs9"
 [tool.hatch.version]
 path = "jupjs9/__init__.py"
 
-[project.scripts]
-jupyter-jupjs9 = "jupjs9:appentry"
+[project.entry-points.jupyter_serverproxy_servers]
+js9 = "jupjs9:js9_main_server"
+js9Helper = "jupjs9:js9_helper_server"
 
 
 [tool.hatch.build.hooks.jupyter-builder]
