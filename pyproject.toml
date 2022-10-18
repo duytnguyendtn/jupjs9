@@ -1,0 +1,37 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "jupjs9"
+description = 'Jupyter interface for js9'
+readme = "README.md"
+requires-python = ">=3.7"
+license = "MIT"
+
+dependencies = [
+    "jinja2",
+    "jupyter_server"
+]
+dynamic = ["version"]
+
+[project.urls]
+Source = "https://github.com/zoghbi-a/jupjs9"
+
+[tool.hatch.version]
+path = "jupjs9/__init__.py"
+
+[project.scripts]
+jupyter-jupjs9 = "jupjs9:appentry"
+
+
+[tool.hatch.build.hooks.jupyter-builder]
+dependencies = ["hatch-jupyter-builder>=0.8.1"]
+#build-function = "hatch_jupyter_builder.npm_builder"
+
+[tool.hatch.build.targets.wheel.shared-data]
+"jupyter_server_config.d/jupjs9.json" = "etc/jupyter/jupyter_server_config.d/jupjs9.json"
+#"jupjs9/templates" = "jupjs9/templates"
+
+[tool.hatch.build.targets.sdist]
+exclude = [".git", ".ipynb_checkpoints"]
