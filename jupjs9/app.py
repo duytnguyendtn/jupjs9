@@ -7,9 +7,9 @@ from jupyter_server.extension.application import ExtensionApp, ExtensionAppJinja
 from .handlers import (
     DefaultHandler,
     #ErrorHandler,
-    #ParameterHandler,
+    ParameterHandler,
     #RedirectHandler,
-    #TemplateHandler,
+    TemplateHandler,
     #TypescriptHandler,
 )
 
@@ -37,9 +37,9 @@ class JupJs9App(ExtensionAppJinjaMixin, ExtensionApp):
     def initialize_handlers(self):
         self.handlers.extend(
             [
-                (rf"/{self.name}/default", DefaultHandler),
-                #(rf"/{self.name}/params/(.+)$", ParameterHandler),
-                #(rf"/{self.name}/template1/(.*)$", TemplateHandler),
+                (rf"/{self.name}/?", DefaultHandler),
+                (rf"/{self.name}/params/(.+)$", ParameterHandler),
+                (rf"/{self.name}/t1/(.*)$", TemplateHandler),
                 #(rf"/{self.name}/redirect", RedirectHandler),
                 #(rf"/{self.name}/typescript/?", TypescriptHandler),
                 #(rf"/{self.name}/(.*)", ErrorHandler),
