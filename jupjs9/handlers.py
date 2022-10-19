@@ -1,17 +1,18 @@
 
 from jupyter_server.auth import authorized
-from jupyter_server.base.handlers import JupyterHandler
+from jupyter_server.base.handlers import JupyterHandler, FileFindHandler
 from jupyter_server.extension.handler import (
     ExtensionHandlerJinjaMixin,
     ExtensionHandlerMixin,
 )
 from jupyter_server.utils import url_escape
+import tornado
 
 
 class DefaultHandler(ExtensionHandlerMixin, JupyterHandler):
     auth_resource = "jupjs9:default"
 
-    @authorized
+    @tornado.web.authenticated
     def get(self):
         # The name of the extension to which this handler is linked.
         self.log.info(f"Extension Name in {self.name} Default Handler: {self.name}")
@@ -24,6 +25,7 @@ class DefaultHandler(ExtensionHandlerMixin, JupyterHandler):
 
         
 class ParameterHandler(ExtensionHandlerMixin, JupyterHandler):
+    @tornado.web.authenticated
     def get(self, js9ID=None, *args, **kwargs):
         #var1 = self.get_argument("var1", default='None')
         components = [x for x in self.request.path.split("/") if x]
@@ -38,6 +40,7 @@ class BaseTemplateHandler(ExtensionHandlerJinjaMixin, ExtensionHandlerMixin, Jup
 
 
 class TemplateHandler(BaseTemplateHandler):
-    def get(self, path):
+    @tornado.web.authenticated
+    def get(self, jid='JS9'):
         """Optionally, you can print(self.get_template('simple1.html'))"""
-        self.write(self.render_template("index.html", path=path))
+        self.write(self.render_template("index.html", jid=jid))

@@ -11,6 +11,7 @@ from .handlers import (
     #RedirectHandler,
     TemplateHandler,
     #TypescriptHandler,
+    FileFindHandler,
 )
 
 DEFAULT_STATIC_FILES_PATH = os.path.join(os.path.dirname(__file__), "templates")
@@ -39,10 +40,11 @@ class JupJs9App(ExtensionAppJinjaMixin, ExtensionApp):
             [
                 (rf"/{self.name}/?", DefaultHandler),
                 (rf"/{self.name}/params/(.+)$", ParameterHandler),
-                (rf"/{self.name}/t1/(.*)$", TemplateHandler),
+                (rf"/{self.name}/t1/([0-9a-zA-Z]+)?$", TemplateHandler),
                 #(rf"/{self.name}/redirect", RedirectHandler),
                 #(rf"/{self.name}/typescript/?", TypescriptHandler),
                 #(rf"/{self.name}/(.*)", ErrorHandler),
+                (rf"/{self.name}/t1/(.*)", FileFindHandler, {"path": DEFAULT_STATIC_FILES_PATH}),
             ]
         )
 
