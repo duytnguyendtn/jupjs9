@@ -6,7 +6,9 @@ from .app import JupJs9App
 # initialized from pyproject.toml
 def js9_main_server():
     return {
-        'command': ['python', '-m', 'http.server', '-d', '/opt/js9-web', '{port}'],
+        # leave command empty so we can add an icon to the launcher
+        #['python', '-m', 'http.server', '-d', '/opt/js9-web', '{port}'],
+        'command': [],
         'launcher_entry': {
             'enabled': True,
             'title': 'JS9'
