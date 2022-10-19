@@ -10,8 +10,8 @@ from .handlers import (
     RedirectHandler,
 )
 
-DEFAULT_STATIC_FILES_PATH = os.path.join(os.path.dirname(__file__), "templates")
-DEFAULT_TEMPLATE_FILES_PATH = os.path.join(os.path.dirname(__file__), "templates")
+DEFAULT_STATIC_FILES_PATH = '/opt/js9-web/'
+DEFAULT_TEMPLATE_FILES_PATH = '/opt/js9-web/'
 
 
 class JupJs9App(ExtensionAppJinjaMixin, ExtensionApp):
