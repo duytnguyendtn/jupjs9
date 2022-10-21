@@ -49,21 +49,19 @@
 
         
         {% if jid %}
-        var uniqueJS9 = "JS9-{{jid}}";
+        var id = "JS9-{{jid}}";
         {% else %}
-        var uniqueJS9 = "JS9-"+randID(8);
+        var id = "JS9-"+randID(8);
         {% endif %}
         
         
+        var elements = ["", "Menubar", "Toolbar", "Statusbar"];
+        for (var elem of elements ) {
+            document.getElementById('JS9' + elem).setAttribute("id", id + elem);
+        }
         
-        var uniqueJS9Menubar = uniqueJS9 + "Menubar"
-        var uniqueJS9Colorbar = uniqueJS9 + "Colorbar"
-        document.getElementById('JS9').setAttribute("id", uniqueJS9);
-        document.getElementById('JS9Menubar').setAttribute("id", uniqueJS9 + "Menubar");
-        document.getElementById('JS9Toolbar').setAttribute("id",uniqueJS9 + "Toolbar");
-        document.getElementById('JS9Statusbar').setAttribute("id",uniqueJS9 + "Statusbar");
         console.log(document.getElementsByClassName('JS9')[0].id)
-        console.log(uniqueJS9);
+        console.log(id);
         
         
     </script>
