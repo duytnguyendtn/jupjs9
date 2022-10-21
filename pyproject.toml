@@ -12,7 +12,10 @@ license = "MIT"
 dependencies = [
     "jinja2",
     "jupyter_server",
-    "jupyter-server-proxy"
+    "jupyter-server-proxy",
+    "python-socketio[client]",
+    "socketIO-client",
+    "sidecar"
 ]
 dynamic = ["version"]
 
