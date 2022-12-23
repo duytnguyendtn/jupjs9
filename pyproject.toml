@@ -12,7 +12,7 @@ license = "MIT"
 dependencies = [
     "jinja2",
     "jupyter_server",
-    "jupyter-server-proxy==3.2.1"
+    "jupyter-server-proxy==3.2.1",
     "python-socketio[client]",
     "socketIO-client",
     "sidecar",
