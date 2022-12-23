@@ -12,7 +12,7 @@ license = "MIT"
 dependencies = [
     "jinja2",
     "jupyter_server",
-    "jupyter-server-proxy",
+    "jupyter-server-proxy==3.2.1"
     "python-socketio[client]",
     "socketIO-client",
     "sidecar"
@@ -32,11 +32,9 @@ js9Helper = "jupjs9:js9_helper_server"
 
 [tool.hatch.build.hooks.jupyter-builder]
 dependencies = ["hatch-jupyter-builder>=0.8.1"]
-#build-function = "hatch_jupyter_builder.npm_builder"
 
 [tool.hatch.build.targets.wheel.shared-data]
-"jupyter_server_config.d/jupjs9.json" = "etc/jupyter/jupyter_server_config.d/jupjs9.json"
-#"jupjs9/templates" = "jupjs9/templates"
+"jupjs9.json" = "etc/jupyter/jupyter_server_config.d/jupjs9.json"
 
 [tool.hatch.build.targets.sdist]
 exclude = [".git", ".ipynb_checkpoints"]
