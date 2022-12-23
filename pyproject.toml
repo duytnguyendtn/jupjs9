@@ -15,7 +15,9 @@ dependencies = [
     "jupyter-server-proxy==3.2.1"
     "python-socketio[client]",
     "socketIO-client",
-    "sidecar"
+    "sidecar",
+    "ipywidgets",
+    "pyjs9"
 ]
 dynamic = ["version"]
 
