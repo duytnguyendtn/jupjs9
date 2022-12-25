@@ -14,9 +14,6 @@ dependencies = [
     "jupyter-server-proxy",
     "python-socketio[client]",
     "socketIO-client",
-    # we don't depend on jupyter_server_terminals, but
-    # jupyter_server_terminals==0.4.3 break sidecar, keep this until that is fixed
-    "jupyter_server_terminals==0.4.2", 
     "sidecar",
     "pyjs9"
 ]
