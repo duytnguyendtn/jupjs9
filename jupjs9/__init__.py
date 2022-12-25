@@ -11,7 +11,8 @@ def js9_main_server():
         'command': [],
         'launcher_entry': {
             'enabled': True,
-            'title': 'JS9'
+            'title': 'JS9',
+            'new_browser_tab': False
         }}
 
 # Server side helpers to support external communication with JS9 
