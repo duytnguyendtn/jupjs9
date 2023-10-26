@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 from traitlets import Unicode
 
@@ -10,8 +11,10 @@ from .handlers import (
     RedirectHandler,
 )
 
-DEFAULT_STATIC_FILES_PATH = '/opt/js9-web/'
-DEFAULT_TEMPLATE_FILES_PATH = '/opt/js9-web/'
+JS9_FORK_PATH = Path("E:\HEASARC\gitrepos\scieserver-js9\js9-fork")
+
+DEFAULT_STATIC_FILES_PATH = str(JS9_FORK_PATH)#'/opt/js9-web/'
+DEFAULT_TEMPLATE_FILES_PATH = str(JS9_FORK_PATH)#'/opt/js9-web/'
 
 
 class JupJs9App(ExtensionAppJinjaMixin, ExtensionApp):

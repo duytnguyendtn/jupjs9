@@ -1,6 +1,6 @@
 __version__ = '0.0.1'
 
-from .app import JupJs9App
+from .app import JupJs9App, JS9_FORK_PATH
 
 # Main js9 server to serve the html page
 # initialized from pyproject.toml
@@ -21,7 +21,7 @@ def js9_main_server():
 # initlizaed from pyproject.toml
 def js9_helper_server():
     return {
-        'command': ['bash', '-c', 'DEBUG=socket* node /opt/js9-web/js9Helper.js'],
+        'command': ['bash', '-c', f'DEBUG=socket* node {str(JS9_FORK_PATH / "js9Helper.js")}'],
         'port': 2718,
         'launcher_entry': {
            'enabled': False,
